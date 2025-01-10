@@ -4,7 +4,7 @@
 <br>
 <b>College:</b> Dayananda Sagar College Of Engineering
 <br>
-<b>Email:</b> <a href="deepthisr237@gmail.com">deepthisr237@gmail.com</a>
+<b>Email:</b> <a href="mailto:deepthisr237@gmail.com">deepthisr237@gmail.com</a>
 <br>
 <b>GitHub Profile:</b> <a href="https://github.com/Deepthi2402">Deepthi2402</a>
 <hr>
