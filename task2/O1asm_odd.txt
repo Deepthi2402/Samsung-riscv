@@ -1,0 +1,23 @@
+10184:       fe010113                addi    sp,sp,-32
+   10188:       00113c23                sd      ra,24(sp)
+   1018c:       0002b537                lui     a0,0x2b
+   10190:       c3050513                addi    a0,a0,-976 # 2ac30 <__clzdi2+0x44>
+   10194:       2a4000ef                jal     ra,10438 <printf>
+   10198:       00c10593                addi    a1,sp,12
+   1019c:       0002b537                lui     a0,0x2b
+   101a0:       c4850513                addi    a0,a0,-952 # 2ac48 <__clzdi2+0x5c>
+   101a4:       2e8000ef                jal     ra,1048c <scanf>
+   101a8:       00c12583                lw      a1,12(sp)
+   101ac:       0015f793                andi    a5,a1,1
+   101b0:       02079063                bnez    a5,101d0 <main+0x4c>
+   101b4:       0002b537                lui     a0,0x2b
+   101b8:       c5050513                addi    a0,a0,-944 # 2ac50 <__clzdi2+0x64>
+   101bc:       27c000ef                jal     ra,10438 <printf>
+   101c0:       00000513                li      a0,0
+   101c4:       01813083                ld      ra,24(sp)
+   101c8:       02010113                addi    sp,sp,32
+   101cc:       00008067                ret
+   101d0:       0002b537                lui     a0,0x2b
+   101d4:       c6850513                addi    a0,a0,-920 # 2ac68 <__clzdi2+0x7c>
+   101d8:       260000ef                jal     ra,10438 <printf>
+   101dc:       fe5ff06f                j       101c0 <main+0x3c>
