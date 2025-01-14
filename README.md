@@ -22,9 +22,9 @@
     gcc summ.c
     ./a.out</code></pre>
     <br>
-    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task%201/cprog_ex1.jpg"  alt=C code>
+    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%201/cprog_ex1.jpg"  alt=C code>
     <br><br>
-    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task%201/cprog_output.jpg"      alt=commands for c compilation>
+    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%201/cprog_output.jpg"      alt=commands for c compilation>
     <br><br>
     <b>2. Object Dump and O1, Ofast Output</b>
     <br><br>
@@ -34,21 +34,21 @@
     ls -ltr summ.o
     </code></pre>
     <br>
-    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task%201/cmd_risc.jpg"    alt=Commands >
+    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%201/cmd_risc.jpg"    alt=Commands >
     <br><br>
     <pre><code>riscv64-unknown-elf-objdump -d summ.o |less</code></pre>
     <br>
-    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task%201/obj_dump.jpg" alt=Object dump>
+    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%201/obj_dump.jpg" alt=Object dump>
       <br>
       <br>
       <b>For O1: The number of instructions were 15</b><br><br>
-    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task%201/o1_ass.jpg" alt=O1 output>
+    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%201/o1_ass.jpg" alt=O1 output>
     <br><br>
     <pre><code>riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o summ.o summ.c</code></pre>
     <br>
       <b>For Ofast: the number of instructions were 12</b>
       <br><br>
-    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task%201/fast_ass.jpg"  alt=Ofast output>
+    <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%201/fast_ass.jpg"  alt=Ofast output>
     <br><br>
     </details>
 <hr>
@@ -86,7 +86,7 @@ spike -d pk sum.o</code></pre>
 </pre>
 <p>15 instructions for O1</p>
 <br>
-<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task2/O1_spike_sum.png" alt=debugging O1>
+<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/O1_spike_sum.png" alt=debugging O1>
 <br><br>
 <b>Debugging sum.o for Ofast</b>
 <pre><code>riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum.o sum.c
@@ -109,7 +109,7 @@ spike -d pk sum.o</code></pre>
 </pre>
 <p>12 instructions for Ofast</p>
 <br>
-<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/Ofast_spike_sum.png",alt=debugging Ofast>
+<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/Ofast_spike_sum.png",alt="debugging Ofast">
 </details>	   
                                              <!-- Spike for EvenOdd -->	   
 <details>
@@ -132,7 +132,7 @@ return 0;
 }
 </pre>
 <br><br>
-<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task2/c%20langauge_odd.png",alt="odd Compilation">
+<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/c%20langauge_odd.png",alt="odd Compilation">
 <br><br>
 <b>Debugging odd.o for O1</b>
 <pre><code>riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o odd.o odd.c
@@ -165,7 +165,7 @@ spike -d pk odd.o</code></pre>
 </pre>
 <p>23 instructions for O1</p>
 <br>
-<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task2/O1_spike_odd.png",alt="Debug O1">
+<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/O1_spike_odd.png",alt="Debug O1">
 <br><br>
 <b>Debugging odd.o for Ofast</b>
 <pre><code>riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o odd.o odd.c
@@ -198,7 +198,7 @@ spike -d pk odd.o</code></pre>
 </pre>
 <p>23 instructions for Ofast</p>
 <br>
-<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task2/Ofast_spike_odd.png",alt=Ofast debug>
+<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/Ofast_spike_odd.png",alt=Ofast debug>
 <br><br>
 </details>
 </details>
