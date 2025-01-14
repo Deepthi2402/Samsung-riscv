@@ -109,7 +109,7 @@ spike -d pk sum.o</code></pre>
 </pre>
 <p>12 instructions for Ofast</p>
 <br>
-<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/task2/Ofast_spike_sum.png",alt=debugging Ofast>
+<img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%202/Ofast_spike_sum.png",alt=debugging Ofast>
 </details>	   
                                              <!-- Spike for EvenOdd -->	   
 <details>
