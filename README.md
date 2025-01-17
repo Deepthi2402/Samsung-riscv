@@ -627,7 +627,7 @@ spike -d pk odd.o</code></pre>
 
 <!-- 7 -->
 
-<h3>1. Machine code for <code>addi sp, sp, 48</code></h3>
+<h3>7. Machine code for <code>addi sp, sp, 48</code></h3>
 <b>&nbsp;&nbsp;Instruction: </b><code>addi sp, sp, 48</code>  <br><br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0010011 (7 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>-48 (12 bits,two's complement) <br>
@@ -823,20 +823,20 @@ spike -d pk odd.o</code></pre>
 
 <!-- 13 -->
 
-<h3>13. Machine code for <code>ld s0, 16(sp)</code></h3>
-<b>&nbsp;&nbsp;Instruction: </b><code>ld s0, 16(sp)</code>  <br><br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0000011 (7 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>16 (12 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>sp (x2,5 bits) <br>
+<h3>13. Machine code for <code>slliw   s0,s1,0x2</code></h3>
+<b>&nbsp;&nbsp;Instruction: </b><code>slliw   s0,s1,0x2</code>  <br><br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0011011 (7 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>0x2 (12 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>s1 (x9,5 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Destination Register(rd): </b>s0 (x8,5 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Function(funct3): </b>011 (3 bits) <br><br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Function(funct3): </b>001 (3 bits) <br><br>
 <b>&nbsp;&nbsp;Breakdown:</b><br><br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(16): </b><code>000000010000</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs1(sp=x2): </b><code>00010</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(2): </b><code>000000000010</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs1(s1=x9): </b><code>10001</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; funct3: </b><code>011</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rd(s0=x8): </b><code>01000</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b><code>0000011</code> <br><br>
-<pre><code>101d0:       01013403          ld   s0, 16(sp)</code></pre>
+<pre><code>101a8:       0024941b            slliw  s0, s1, 0x2</code></pre>
 	   
 <table>
 	<tr>
@@ -847,45 +847,49 @@ spike -d pk odd.o</code></pre>
 		<th>Opcode (7 bits)</th>
 	</tr>
 	<tr>
-		<td>000000010000</td>
-		<td>00010</td>
-		<td>011</td>
+		<td>000000000010</td>
+		<td>10001</td>
+		<td>001</td>
 		<td>01000</td>
-		<td>0000011</td>
+		<td>0011011</td>
 	</tr>
 </table>
 
 <!-- 14 -->
 
-<h3>14. Machine code for <code>ld s1, 8(sp)</code></h3>
-<b>&nbsp;&nbsp;Instruction: </b><code>ld s1, 8(sp)</code>  <br><br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0000011 (7 bits) <br>
+<h3>14. Machine code for <code>addw s0, s0, s1</code></h3>
+<b>&nbsp;&nbsp;Instruction: </b><code>addw s0, s0, s1</code>  <br><br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0111011 (7 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>8 (12 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>sp (x2,5 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Destination Register(rd): </b>s1 (x9,5 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Function(funct3): </b>011 (3 bits) <br><br>
+ 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs2): </b>s1 (x9,5 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>s0 (x8,5 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Destination Register(rd): </b>s0 (x8,5 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Function(funct3): </b>000 (3 bits) <br><br>
 <b>&nbsp;&nbsp;Breakdown:</b><br><br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(8): </b><code>000000001000</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs1(sp=x2): </b><code>00010</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; funct3: </b><code>011</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rd(s1=x9): </b><code>01001</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b><code>0000011</code> <br><br>
-<pre><code>101d4:       00813483          ld   s1, 8(sp)</code></pre>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(0): </b><code>000000000000</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs2(s1=x9): </b><code>01001</code> <br>
+ 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs1(s0=x0): </b><code>01000</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; funct3: </b><code>000</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rd(s0=x0): </b><code>01000</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b><code>0111011</code> <br><br>
+<pre><code>101ac:       0094043b          addw s0, s0, s1</code></pre>
 	   
 <table>
 	<tr>
-		<th>Immediate (12 bits)</th>
+		<th>funct7 (7 bits)</th>
+		<th>rs2 (5 bits)</th>
 		<th>rs1 (5 bits)</th>
 		<th>funct3 (3 bits)</th>
 		<th>rd (5 bits)</th>
 		<th>Opcode (7 bits)</th>
 	</tr>
 	<tr>
-		<td>000000001000</td>
-		<td>00010</td>
-		<td>011</td>
+		<td>0000000</td>
 		<td>01001</td>
-		<td>0000011</td>
+		<td>01000</td>
+		<td>000</td>
+		<td>01000</td>
+		<td>0111011</td>
 	</tr>
 </table>
 
