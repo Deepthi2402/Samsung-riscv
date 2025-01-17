@@ -392,7 +392,7 @@ spike -d pk odd.o</code></pre>
    1021c:       1f050513                addi    a0,a0,496 # 211f0 &lt;__clzdi2+0x40&gt;
    10220:       360000ef                jal     ra,10580 &lt;printf&gt;
    10224:       fd1ff06f                j       101f4 &lt;main+0x70&gt;
-
+</pre>
 
 <!-- 1 -->
 
