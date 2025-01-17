@@ -848,7 +848,7 @@ spike -d pk odd.o</code></pre>
 	</tr>
 	<tr>
 		<td>000000000010</td>
-		<td>10001</td>
+		<td>01001</td>
 		<td>001</td>
 		<td>01000</td>
 		<td>0011011</td>
