@@ -204,7 +204,7 @@ spike -d pk odd.o</code></pre>
 </details>
 <hr>   
                                               <!--End of Task 2-->
-    <!-- Task 3 -->   
+ <!-- Task 3 -->   
 <details>
 	<summary>
 		<b>Task 3:</b> Identify instruction type of all the instructions of the Object dump with its exact 32 bits instruction code in the desired instruction type format.
@@ -517,7 +517,7 @@ spike -d pk odd.o</code></pre>
 <!-- 4 -->
 
 <h3>4. Machine code for <code>sd s3, 8(sp)</code></h3>
-<b>&nbsp;&nbsp;Instruction: </b><code>sd s1, 8(sp)</code>  <br><br>
+<b>&nbsp;&nbsp;Instruction: </b><code>sd s3, 8(sp)</code>  <br><br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0100011 (7 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>8 (12 bits split into imm[11:5] and imm[4:0]) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Base Register(rs1): </b>sp (x2,5 bits) <br>
@@ -536,7 +536,7 @@ spike -d pk odd.o</code></pre>
     	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; funct3 (3 bits): </b><code>011</code><br>
      	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; imm[4:0] (5 bits): </b><code>01000</code><br>
       	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; opcode (7 bits): </b><code>0100011</code><br><br>
-<pre><code>10198:       01313423           sd    s1, 8(sp)</code></pre>
+<pre><code>10198:       01313423           sd    s3, 8(sp)</code></pre>
 	   
 <table>
 	<tr>
@@ -627,20 +627,20 @@ spike -d pk odd.o</code></pre>
 
 <!-- 7 -->
 
-<h3>7. Machine code for <code>li s1, 11</code></h3>
-<b>&nbsp;&nbsp;Instruction: </b><code>li s1, 11</code>  <br><br>
+<h3>1. Machine code for <code>addi sp, sp, 48</code></h3>
+<b>&nbsp;&nbsp;Instruction: </b><code>addi sp, sp, 48</code>  <br><br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0010011 (7 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>11 (12 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>zero (x0,5 bits) <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Destination Register(rd): </b>s1 (x9,5 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>-48 (12 bits,two's complement) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>sp (x2,5 bits) <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Destination Register(rd): </b>sp (x2,5 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Function(funct3): </b>000 (3 bits) <br><br>
 <b>&nbsp;&nbsp;Breakdown:</b><br><br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(1): </b><code>000000001011</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs1(zero=x0): </b><code>00000</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(48): </b><code>000000110000</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rs1(sp=x2): </b><code>00010</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; funct3: </b><code>000</code> <br>
-	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rd(s1=x9): </b><code>01001</code> <br>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rd(sp=x2): </b><code>00010</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b><code>0010011</code> <br><br>
-<pre><code>1019c:       00b00493            li     s1, 11</code></pre>
+<pre><code>1020c:       03010113          addi  sp, sp, 48</code></pre>
 	   
 <table>
 	<tr>
@@ -651,10 +651,10 @@ spike -d pk odd.o</code></pre>
 		<th>Opcode (7 bits)</th>
 	</tr>
 	<tr>
-		<td>000000001011</td>
-		<td>00000</td>
+		<td>000000110000</td>
+		<td>00010</td>
 		<td>000</td>
-		<td>01001</td>
+		<td>00010</td>
 		<td>0010011</td>
 	</tr>
 </table>
@@ -696,7 +696,7 @@ spike -d pk odd.o</code></pre>
 <!-- 9 -->
 
 <h3>9. Machine code for <code>sext.w s2, a0</code></h3>
-<b>&nbsp;&nbsp;Instruction: </b><code>sext.w a1, a0</code>  <br><br>
+<b>&nbsp;&nbsp;Instruction: </b><code>sext.w s2, a0</code>  <br><br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b>0011011 (7 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate: </b>0 (12 bits) <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Source Register(rs1): </b>a0 (x10,5 bits) <br>
@@ -772,7 +772,7 @@ spike -d pk odd.o</code></pre>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Immediate(0x21): </b><code>00000000000000100001</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; rd(a0=x10): </b><code>01010</code> <br>
 	<b>&nbsp;&nbsp;&nbsp;&nbsp;&#183; Opcode: </b><code>0110111</code> <br><br>
-<pre><code>10218:       00021537          lui  a0, 0x21</code></pre>
+<pre><code>101e8:       00021537          lui  a0, 0x21</code></pre>
 	   
 <table>
 	<tr>
