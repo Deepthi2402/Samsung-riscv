@@ -1074,13 +1074,13 @@ This project involves the implementation of a binary-to-Gray code converter usin
     </li>
   </ul>
   <br>
-  <img src="https://github.com/Abhay291204/samsung-riscv/blob/main/Task%205/Circuit%20diagram.png">
+  <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%205/circuit.png">
   <br>
 
   <h3>
 Block Diagram
   </h3>
-  <img src="https://github.com/Abhay291204/samsung-riscv/blob/main/Task%205/The-circuit-diagram-and-symbol-of-LFSR-8-bit.png">
+  <img src="https://github.com/Deepthi2402/Samsung-riscv/blob/main/Task%205/gray-to-binary-circuit-1.jpg">
   <br>
   <p>
 The block diagram represents a 4-bit Binary to Gray Code Converter using XOR gates. It consists of:  
