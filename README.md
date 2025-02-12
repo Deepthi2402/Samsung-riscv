@@ -999,5 +999,302 @@ spike -d pk odd.o</code></pre>
     </details>
     <!--End of Task 4-->
 <hr>
+
+<!--task 5-->
+<details>
+  <summary>
+      <b>
+        Task 5:
+      </b>
+      To implement any digital circuit using VSDSquadron Mini and check whether building and uploading of C program file on RISCV processor works.  
+  </summary>
+  <h2>
+    Implement Binary to Grey code converter using VSDSquadronmini
+  </h2>
+
+  <h3>
+    Overview
+  </h3>
+
+  <p>
+This project involves the implementation of a binary-to-Gray code converter using the VSD Squadron Mini, a RISC-V-based SoC development kit. Gray code is a binary numeral system where two successive values differ by only one bit, making it useful in minimizing errors in digital systems. The implementation includes reading a binary input from GPIO pins, applying the Gray code conversion logic, and displaying the output using LEDs. This project demonstrates the practical application of digital encoding techniques and microcontroller-based signal processing, highlighting the efficiency of RISC-V for embedded system applications.
+  </p>
+
+  <h3>
+   Components Required
+  </h3>
+
+  <ul>
+    <li>
+      VSD Squadron Mini
+    </li>
+    <li>
+      Push buttons for clock
+    </li>
+    <li>
+      8 LEDs for Output Binary and Grey code
+    </li>
+    <li>
+      Bread Board
+    </li>
+    <li>
+      Jumper wires
+    </li>
+    <li>
+     VS Code for software Development
+    </li>
+    <li>
+    PlatformIO multi framework professional IDE
+    </li>
+  </ul>
+  <h3>
+  Hardware Connections
+  </h3>
+  <ul>
+    <li>
+      <b>
+        Input:
+      </b>
+      <p>
+        One input connected to the GPIO Pins of VSDsquadron Mini via push button mounted on the breadboard.
+      </p>
+    </li>
+    <li>
+      <b>
+        Output:
+      </b>
+      <p>
+       Eight LEDs are connected to display the result of Binary and Grey code.
+      </p>
+    </li>
+    <li>
+      <p>
+      The GPIO pins are configured according to the reference mannual ensuring the correct flow of signals between the components.
+      </p>
+    </li>
+  </ul>
+  <br>
+  <img src="https://github.com/Abhay291204/samsung-riscv/blob/main/Task%205/Circuit%20diagram.png">
+  <br>
+
+  <h3>
+Block Diagram
+  </h3>
+  <img src="https://github.com/Abhay291204/samsung-riscv/blob/main/Task%205/The-circuit-diagram-and-symbol-of-LFSR-8-bit.png">
+  <br>
+  <p>
+The block diagram represents a 4-bit Binary to Gray Code Converter using XOR gates. It consists of:  
+  </p>
+  <ul>
+<li>
+<b>Inputs:</b> Four binary bits labeled  <b>b<sub>3</sub></b>, <b>b<sub>2</sub></b>,<b>b<sub>1</sub></b>, <b>b<sub>0</sub></b>.
+</li>
+
+<li>
+<b>Logic Gates:</b> Three XOR gates are used to process the input bits and generate the corresponding Gray code.
+</li>
+
+<li>
+<b>Outputs:</b> Four grey bits labeled  <b>g<sub>3</sub></b>, <b>g<sub>2</sub></b>,<b>g<sub>1</sub></b>, <b>g<sub>0</sub></b>.
+</li>
+
+<li>
+The diagram visually shows the flow of data, where each XOR gate receives two inputs and produces one output, forming a sequential logic circuit.
+</li>
+  </ul>
+  <h3>
+    Working
+  </h3>
+  <p>
+A Binary to Gray Code Converter is a combinational logic circuit that converts a binary number into its equivalent Gray code. Gray code is a special type of binary numeral system where two consecutive numbers differ by only one bit, reducing errors in digital systems like encoders and data transmission.
+  </p>
+
+
+  <p>
+3 XOR gates to process the binary input:
+  </p>
+	  
+<pre>
+g3 = b3
+g2 = b3 ^ b2
+g1 = b2 ^ b1
+g0 = b1 ^ b0
+</pre>
+
+
+<h3>Truth Table for Binary to Grey</h3>
+<h3>Truth Table for Binary to Gray Conversion</h3>
+<table>
+<!--Row 1-->
+	<tr>
+		<th colspan="4" align="center">Binary</th><th colspan="4" align="center">Gray</th>
+	</tr>
+<!--Row 2-->
+<tr> 
+<!--B -->  <th>B<sub>3</sub></th> <th>B<sub>2</sub></th> <th>B<sub>1</sub></th> <th>B<sub>0</sub></th> 
+<!--G -->  <th>G<sub>3</sub></th> <th>G<sub>2</sub></th> <th>G<sub>1</sub></th> <th>G<sub>0</sub></th>
+</tr>	
+<!--Row 3-->
+<tr> 
+<!--B -->  <td>0</td> <td>0</td> <td>0</td> <td>0</td> 
+<!--G -->  <td>0</td> <td>0</td> <td>0</td> <td>0</td>
+</tr>	
+<!--Row 4-->
+<tr> 
+<!--B -->  <td>0</td> <td>0</td> <td>0</td> <td>1</td> 
+<!--G -->  <td>0</td> <td>0</td> <td>0</td> <td>1</td>
+</tr>
+<!--Row 5-->
+<tr> 
+<!--B -->  <td>0</td> <td>0</td> <td>1</td> <td>0</td> 
+<!--G -->  <td>0</td> <td>0</td> <td>1</td> <td>1</td>
+</tr>
+<!--Row 6-->
+<tr> 
+<!--B -->  <td>0</td> <td>0</td> <td>1</td> <td>1</td> 
+<!--G -->  <td>0</td> <td>0</td> <td>1</td> <td>0</td>
+</tr>
+<!--Row 7-->
+<tr> 
+<!--B -->  <td>0</td> <td>1</td> <td>0</td> <td>0</td> 
+<!--G -->  <td>0</td> <td>1</td> <td>1</td> <td>0</td>
+</tr>
+<!--Row 8-->
+<tr> 
+<!--B -->  <td>0</td> <td>1</td> <td>0</td> <td>1</td> 
+<!--G -->  <td>0</td> <td>1</td> <td>1</td> <td>1</td>
+</tr>
+<!--Row 9-->
+<tr> 
+<!--B -->  <td>0</td> <td>1</td> <td>1</td> <td>0</td> 
+<!--G -->  <td>0</td> <td>1</td> <td>0</td> <td>1</td>
+</tr>
+<!--Row 10-->
+<tr> 
+<!--B -->  <td>0</td> <td>1</td> <td>1</td> <td>1</td> 
+<!--G -->  <td>0</td> <td>1</td> <td>0</td> <td>0</td>
+</tr>
+<!--Row 11-->
+<tr> 
+<!--B -->  <td>1</td> <td>0</td> <td>0</td> <td>0</td> 
+<!--G -->  <td>1</td> <td>1</td> <td>0</td> <td>0</td>
+</tr>
+<!--Row 12-->
+<tr> 
+<!--B -->  <td>1</td> <td>0</td> <td>0</td> <td>1</td> 
+<!--G -->  <td>1</td> <td>1</td> <td>0</td> <td>1</td>
+</tr>
+<!--Row 13-->
+<tr> 
+<!--B -->  <td>1</td> <td>0</td> <td>1</td> <td>0</td> 
+<!--G -->  <td>1</td> <td>1</td> <td>1</td> <td>1</td>
+</tr>
+<!--Row 14-->
+<tr> 
+<!--B -->  <td>1</td> <td>0</td> <td>1</td> <td>1</td> 
+<!--G -->  <td>1</td> <td>1</td> <td>1</td> <td>0</td>
+</tr>
+<!--Row 15-->
+<tr> 
+<!--B -->  <td>1</td> <td>1</td> <td>0</td> <td>0</td> 
+<!--G -->  <td>1</td> <td>0</td> <td>1</td> <td>0</td>
+</tr>
+<!--Row 16-->
+<tr> 
+<!--B -->  <td>1</td> <td>1</td> <td>0</td> <td>1</td> 
+<!--G -->  <td>1</td> <td>0</td> <td>1</td> <td>1</td>
+</tr>
+<!--Row 17-->
+<tr> 
+<!--B -->  <td>1</td> <td>1</td> <td>1</td> <td>0</td> 
+<!--G -->  <td>1</td> <td>0</td> <td>0</td> <td>1</td>
+</tr>
+<!--Row 18-->
+<tr> 
+<!--B -->  <td>1</td> <td>1</td> <td>1</td> <td>1</td> 
+<!--G -->  <td>1</td> <td>0</td> <td>0</td> <td>0</td>
+</tr>
+</table>
+
+<h3>
+  Code
+</h3>
+<pre>
+#include&lt;stdio.h&gt;
+#include&lt;debug.h&gt;
+#include&lt;ch32v00x.h&gt;
+#include&lt;math.h&gt;
+#define N 8  // Define N as a macro
+void GPIO_Config(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure = {0}; 
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defined as Input Type.
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+}
+int main()
+{
+    int lsfr[N] = {1, 0, 0, 0, 0, 0, 0, 0};  // Initialize all elements
+    int lsfr_1[N];
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+    SystemCoreClockUpdate();
+    Delay_Init();
+    GPIO_Config();
+    while(1)
+    {
+        if (GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_4) == 0)
+    {
+        i++%16;
+        binary[3] = i & 1;
+        binary[2] = (i>>1) & 1;
+        binary[1] = (i>>2) & 1;
+        binary[0] = (i>>3) & 1;
+
+        binary[4] = binary[0];
+        binary[5] = binary[0] ^ binary[1];
+        binary[6] = binary[1] ^ binary[2];
+        binary[7] = binary[2] ^ binary[3];
+
+        GPIO_WriteBit(GPIOC, GPIO_Pin_3, (binary[7]) ? SET : RESET);
+        GPIO_WriteBit(GPIOC, GPIO_Pin_2, (binary[6]) ? SET : RESET);
+        GPIO_WriteBit(GPIOC, GPIO_Pin_1, (binary[5]) ? SET : RESET);
+        GPIO_WriteBit(GPIOC, GPIO_Pin_0, (binary[4]) ? SET : RESET);
+        
+        GPIO_WriteBit(GPIOC, GPIO_Pin_6, (binary[3]) ? SET : RESET);
+        GPIO_WriteBit(GPIOC, GPIO_Pin_7, (binary[2]) ? SET : RESET);
+        GPIO_WriteBit(GPIOD, GPIO_Pin_2, (binary[1]) ? SET : RESET);
+        GPIO_WriteBit(GPIOD, GPIO_Pin_3, (binary[0]) ? SET : RESET);
+        Delay_Ms(500);
+
+    }
+    }
+
+}
+</pre>
+
+
+</details>
+
+<hr>
+Binary to Grey Implementation_Video
+<p>
+  Higher Quality Video
+</p>
+<ul>
+  <li>
+<a href="https://youtu.be/u1Xu52OwNDE"
+target="_blank">
+ Youtube Link
+</a>
+</li>
+</ul>
 </body>
 </html>
