@@ -1108,17 +1108,15 @@ The diagram visually shows the flow of data, where each XOR gate receives two in
   <p>
 A Binary to Gray Code Converter is a combinational logic circuit that converts a binary number into its equivalent Gray code. Gray code is a special type of binary numeral system where two consecutive numbers differ by only one bit, reducing errors in digital systems like encoders and data transmission.
   </p>
-
-
   <p>
 3 XOR gates to process the binary input:
   </p>
 	  
 <pre>
-g3 = b3
-g2 = b3 ^ b2
-g1 = b2 ^ b1
-g0 = b1 ^ b0
+G3 = B3
+G2 = B3 ^ B2
+G1 = B2 ^ B1
+G0 = B1 ^ B0
 </pre>
 
 
@@ -1233,17 +1231,15 @@ void GPIO_Config(void)
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Defined as Input Type.
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOD, &GPIO_InitStructure);
-    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    GPIO_Init(GPIOD, &amp;GPIO_InitStructure);
+    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);
 }
 int main()
 {
-    int lsfr[N] = {1, 0, 0, 0, 0, 0, 0, 0};  // Initialize all elements
-    int lsfr_1[N];
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
     SystemCoreClockUpdate();
     Delay_Init();
@@ -1257,30 +1253,28 @@ int main()
         binary[2] = (i>>1) & 1;
         binary[1] = (i>>2) & 1;
         binary[0] = (i>>3) & 1;
-
-        binary[4] = binary[0];
-        binary[5] = binary[0] ^ binary[1];
-        binary[6] = binary[1] ^ binary[2];
-        binary[7] = binary[2] ^ binary[3];
-
+<!--Blank Space-->
+ 	binary[4] = binary[0];
+ 	binary[5] = binary[0] ^ binary[1];
+ 	binary[6] = binary[1] ^ binary[2];
+ 	binary[7] = binary[2] ^ binary[3];
+<!--Blank Space-->
         GPIO_WriteBit(GPIOC, GPIO_Pin_3, (binary[7]) ? SET : RESET);
         GPIO_WriteBit(GPIOC, GPIO_Pin_2, (binary[6]) ? SET : RESET);
         GPIO_WriteBit(GPIOC, GPIO_Pin_1, (binary[5]) ? SET : RESET);
         GPIO_WriteBit(GPIOC, GPIO_Pin_0, (binary[4]) ? SET : RESET);
-        
+    <!--Blank Space-->    
         GPIO_WriteBit(GPIOC, GPIO_Pin_6, (binary[3]) ? SET : RESET);
         GPIO_WriteBit(GPIOC, GPIO_Pin_7, (binary[2]) ? SET : RESET);
         GPIO_WriteBit(GPIOD, GPIO_Pin_2, (binary[1]) ? SET : RESET);
         GPIO_WriteBit(GPIOD, GPIO_Pin_3, (binary[0]) ? SET : RESET);
         Delay_Ms(500);
-
+<!--Blank Space-->
     }
     }
 
 }
 </pre>
-
-
 </details>
 
 <hr>
