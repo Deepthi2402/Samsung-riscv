@@ -1102,6 +1102,11 @@ The block diagram represents a 4-bit Binary to Gray Code Converter using XOR gat
 The diagram visually shows the flow of data, where each XOR gate receives two inputs and produces one output, forming a sequential logic circuit.
 </li>
   </ul>
+</details>
+<hr>
+<!-- Task 6-->
+<details>
+	<summary><b>Task 6:</b> Implementing Binary to Gray code generator.</summary>
   <h3>
     Working
   </h3>
